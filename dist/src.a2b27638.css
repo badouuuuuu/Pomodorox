@@ -1,0 +1,73 @@
+body {
+  background-color: #fefefe;
+  text-align: center; }
+  body .navbar {
+    background: #3b6205;
+    color: #1b4223; }
+  body h1 {
+    font-size: 30px;
+    color: #b93602;
+    font-weight: bold; }
+
+.title {
+  color: white;
+  font-size: 14px; }
+
+#box-pomodo {
+  color: white;
+  margin: 0 auto;
+  margin-top: 240px;
+  grid-template-columns: 10% 1fr 15%;
+  grid-template-rows: 10% 1fr 10%;
+  height: 240px;
+  background-color: #3b6205;
+  width: 640px;
+  border: 2px solid #b93602;
+  border-radius: 10px;
+  display: grid; }
+
+#timer {
+  grid-column: 2/3;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 60px;
+  line-height: 220px;
+  color: white; }
+
+#right-pannel {
+  background-color: #b93602;
+  grid-column: 3/4;
+  grid-row: 1/4;
+  width: auto;
+  height: auto;
+  border-radius: 10px;
+  padding-top: 40px; }
+
+#right-pannel button {
+  background-color: rgba(255, 255, 255, 0.415);
+  cursor: pointer;
+  height: 30px;
+  border-radius: 10px;
+  width: auto;
+  border: none;
+  color: white;
+  font-weight: bold;
+  width: 100%;
+  display: grid;
+  margin-bottom: 30px; }
+
+#right-pannel button:hover {
+  background-color: rgba(0, 128, 0, 0.741);
+  border-radius: 12px;
+  color: white; }
+
+.footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 0.1rem;
+  background-color: #b93602; }
+
+.footer p {
+  color: #274200; }
