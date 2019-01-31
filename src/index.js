@@ -3,6 +3,8 @@ import ReactDOM from "react-dom";
 import Header from './components/Header'
 import Timer from './components/Timer'
 import Footer from './components/Footer'
+import ModalShow from './components/ModalShow'
+
 import './scss/app.scss'
 
 class Pomodorox extends React.Component {
@@ -13,7 +15,8 @@ class Pomodorox extends React.Component {
             <div className="container">
               
             </div>
-            <Timer/>
+            <Timer/>    
+           
          
             <Footer/>
     

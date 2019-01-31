@@ -26622,7 +26622,12 @@ var customStyles = {
     right: 'auto',
     bottom: 'auto',
     marginRight: '-50%',
-    transform: 'translate(-50%, -50%)'
+    transform: 'translate(-50%, -50%)',
+    backgroundColor: 'red',
+    border: '2px solid rgb(59, 98, 5)',
+    width: '640px',
+    height: '200px',
+    borderRadius: '10px'
   }
 };
 
@@ -26668,14 +26673,17 @@ function (_Component) {
     value: function afterOpenModal() {
       // references are now sync'd and can be accessed.
       this.subtitle.style.color = '#f00';
+      this.subtitle.style.fontWeight = 'bold';
     }
   }, {
     key: "closeModal",
     value: function closeModal() {
       this.setState({
-        modalIsOpen: false
+        modalIsOpen: false,
+        disabled: false
       });
-      this.StartTimer(e);
+      this.state.minutes = 25;
+      this.state.secondes = 0;
     }
   }, {
     key: "StartTimer",
@@ -26683,6 +26691,9 @@ function (_Component) {
       var _this2 = this;
 
       this.state.disabled = true;
+      this.state.minutes = this.state.minutes;
+      this.state.secondes = this.state.secondes;
+      this.closeModal();
 
       if (this.state.timerStop) {
         this.setState(function (prevState) {
@@ -26723,17 +26734,20 @@ function (_Component) {
             _this2.setState({
               timerStart: false,
               timerStop: true,
-              button: "START"
+              button: "START",
+              disabled: false
             });
 
             clearInterval(_this2.timer);
+
+            _this2.openModal();
           }
         }, 1000);
       }
     }
   }, {
-    key: "StopTimer",
-    value: function StopTimer(e) {
+    key: "ToggleButton",
+    value: function ToggleButton(e) {
       if (this.state.button == "START") {
         this.StartTimer();
       } else {
@@ -26815,7 +26829,7 @@ function (_Component) {
         onClick: this.addOne.bind(this)
       }, "+"), _react.default.createElement("button", {
         id: "start",
-        onClick: this.StopTimer.bind(this)
+        onClick: this.ToggleButton.bind(this)
       }, this.state.button), _react.default.createElement("button", {
         disabled: this.state.disabled,
         id: "moins",
@@ -26827,14 +26841,18 @@ function (_Component) {
         onAfterOpen: this.afterOpenModal,
         onRequestClose: this.closeModal,
         style: customStyles,
-        contentLabel: "Example Modal"
+        contentLabel: "Pomodorox"
       }, _react.default.createElement("h2", {
         ref: function ref(subtitle) {
           return _this3.subtitle = subtitle;
         }
-      }, "Time is over"), _react.default.createElement("button", {
+      }, "Time over"), _react.default.createElement("button", {
+        className: "modal-button",
         onClick: this.closeModal
-      }, "Restart"), _react.default.createElement("div", null, "I am a modal"), _react.default.createElement("form", null, _react.default.createElement("input", null), _react.default.createElement("button", null, "tab navigation"), _react.default.createElement("button", null, "stays"), _react.default.createElement("button", null, "inside"), _react.default.createElement("button", null, "the modal")))));
+      }, "Discard"), _react.default.createElement("button", {
+        className: "modal-button",
+        onClick: this.ToggleButton.bind(this)
+      }, "Restart"), _react.default.createElement("form", null))));
     }
   }]);
 
@@ -26870,7 +26888,9 @@ var Footer = function Footer() {
 
 var _default = Footer;
 exports.default = _default;
-},{"react":"node_modules/react/index.js"}],"../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js"}],"src/components/ModalShow.js":[function(require,module,exports) {
+
+},{}],"../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
 var bundleURL = null;
 
 function getBundleURLCached() {
@@ -26955,6 +26975,8 @@ var _Timer = _interopRequireDefault(require("./components/Timer"));
 
 var _Footer = _interopRequireDefault(require("./components/Footer"));
 
+var _ModalShow = _interopRequireDefault(require("./components/ModalShow"));
+
 require("./scss/app.scss");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -27005,7 +27027,7 @@ function (_React$Component) {
 var App = document.getElementById("app");
 
 _reactDom.default.render(_react.default.createElement(Pomodorox, null), App);
-},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","./components/Header":"src/components/Header.js","./components/Timer":"src/components/Timer.js","./components/Footer":"src/components/Footer.js","./scss/app.scss":"src/scss/app.scss"}],"../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","./components/Header":"src/components/Header.js","./components/Timer":"src/components/Timer.js","./components/Footer":"src/components/Footer.js","./components/ModalShow":"src/components/ModalShow.js","./scss/app.scss":"src/scss/app.scss"}],"../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -27032,7 +27054,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "33453" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "41743" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

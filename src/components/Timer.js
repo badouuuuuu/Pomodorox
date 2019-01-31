@@ -11,8 +11,14 @@ const customStyles = {
     right                 : 'auto',
     bottom                : 'auto',
     marginRight           : '-50%',
-    transform             : 'translate(-50%, -50%)'
-  }
+    transform             : 'translate(-50%, -50%)',
+    backgroundColor       : 'red',
+    border                : '2px solid rgb(59, 98, 5)',
+    width                 : '640px',
+    height                : '200px',
+    borderRadius          : '10px'
+
+  },
 };
 
 class Timer extends Component {
@@ -45,17 +51,24 @@ class Timer extends Component {
   afterOpenModal() {
     // references are now sync'd and can be accessed.
     this.subtitle.style.color = '#f00';
+    this.subtitle.style.fontWeight = 'bold';
+  
   }
 
   closeModal() {
-    this.setState({modalIsOpen: false});
-    this.StartTimer(e);
+    this.setState({modalIsOpen: false, disabled:false});
+    this.state.minutes = 25;
+    this.state.secondes = 0;    
+   
   }
  
 
 
    StartTimer(e) {
- this.state.disabled = true;
+    this.state.disabled = true;
+    this.state.minutes = this.state.minutes;
+    this.state.secondes = this.state.secondes;
+    this.closeModal();
 
      if (this.state.timerStop) {
        this.setState((prevState) => ({ button: prevState.button = "RESET" }))
@@ -79,13 +92,12 @@ class Timer extends Component {
             }
          }
 
- 
          if (this.state.secondes <= 0 && this.state.minutes <= 0) {
       
-            this.setState({timerStart:false, timerStop:true, button:"START"});
+            this.setState({timerStart:false, timerStop:true, button:"START", disabled: false});
              clearInterval(this.timer);
+             this.openModal()
            
-       
          }
  
        }, 1000)
@@ -93,10 +105,13 @@ class Timer extends Component {
    }
  }
  
- StopTimer(e) {
+ ToggleButton(e) {
 
   if(this.state.button == "START") {
+
     this.StartTimer();
+    
+
   } else {
     this.setState({timerStart:false, timerStop:true, button:"START"});
     clearInterval(this.timer);
@@ -140,36 +155,34 @@ class Timer extends Component {
    render() {
      return (
        <div className="Timer">
-   
+  
            <div id="box-pomodo">
             <p id="timer"> { this.state.minutes } :  { this.state.zero_secondes }  { this.state.secondes } </p> 
            
             <div id="right-pannel">
                <button disabled={this.state.disabled} id="plus" onClick={ this.addOne.bind(this) } >+</button>
                
-               <button id="start" onClick={ this.StopTimer.bind(this) } >{ this.state.button }</button>
+               <button id="start" onClick={ this.ToggleButton.bind(this) } >{ this.state.button }</button>
                <button disabled={this.state.disabled} id="moins" onClick={ this.deleteOne.bind(this)}>-</button>
             </div>
            </div>
            <div>
-        <button onClick={this.openModal}>Open Modal</button>
+           <button onClick={this.openModal}>Open Modal</button>
+
         <Modal
           isOpen={this.state.modalIsOpen}
           onAfterOpen={this.afterOpenModal}
           onRequestClose={this.closeModal}
           style={customStyles}
-          contentLabel="Example Modal"
+          contentLabel="Pomodorox"
         >
 
-          <h2 ref={subtitle => this.subtitle = subtitle}>Time is over</h2>
-          <button onClick={this.closeModal}>Restart</button>
-          <div>I am a modal</div>
+          <h2 ref={subtitle => this.subtitle = subtitle}>Time over</h2>
+          <button className="modal-button" onClick={this.closeModal}>Discard</button> 
+          <button className="modal-button" onClick={this.ToggleButton.bind(this)}>Restart</button>
+   
           <form>
-            <input />
-            <button>tab navigation</button>
-            <button>stays</button>
-            <button>inside</button>
-            <button>the modal</button>
+        
           </form>
         </Modal>
       </div>
