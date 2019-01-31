@@ -22,10 +22,9 @@ class Timer extends Component {
    StartTimer(e) {
  
      if (this.state.timerStop) {
-       this.setState((prevState) => ({ button: prevState.button = "STOP" }))
+       this.setState((prevState) => ({ button: prevState.button = "RESET" }))
 
         this.timer = setInterval(() => {
-
   
          this.setState({timerStart: true, timerStop: false});
 
@@ -59,9 +58,17 @@ class Timer extends Component {
  }
  
  StopTimer(e) {
+
+  if(this.state.button == "START") {
+    this.StartTimer();
+  } else {
+    this.setState({timerStart:false, timerStop:true, button:"START"});
+    clearInterval(this.timer);
+    this.setState((prevState) => ({ minutes: prevState.minutes = 25, secondes:0 + "0"}));
+
+  }
  
-   this.setState({timerStart:false, timerStop:true});
-   clearInterval(this.timer);
+
  }
  
  addOne(){
@@ -104,7 +111,7 @@ class Timer extends Component {
             <div id="right-pannel">
                <button id="plus" onClick={ this.addOne.bind(this) } >+</button>
                
-               <button id="start" onClick={ this.StartTimer.bind(this) } >{ this.state.button }</button>
+               <button id="start" onClick={ this.StopTimer.bind(this) } >{ this.state.button }</button>
                <button id="moins" onClick={ this.deleteOne.bind(this)}>-</button>
             </div>
            </div>

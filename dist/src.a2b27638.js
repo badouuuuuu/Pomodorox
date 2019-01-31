@@ -24579,7 +24579,7 @@ function (_Component) {
       if (this.state.timerStop) {
         this.setState(function (prevState) {
           return {
-            button: prevState.button = "STOP"
+            button: prevState.button = "RESET"
           };
         });
         this.timer = setInterval(function () {
@@ -24626,11 +24626,22 @@ function (_Component) {
   }, {
     key: "StopTimer",
     value: function StopTimer(e) {
-      this.setState({
-        timerStart: false,
-        timerStop: true
-      });
-      clearInterval(this.timer);
+      if (this.state.button == "START") {
+        this.StartTimer();
+      } else {
+        this.setState({
+          timerStart: false,
+          timerStop: true,
+          button: "START"
+        });
+        clearInterval(this.timer);
+        this.setState(function (prevState) {
+          return {
+            minutes: prevState.minutes = 25,
+            secondes: 0 + "0"
+          };
+        });
+      }
     }
   }, {
     key: "addOne",
@@ -24692,7 +24703,7 @@ function (_Component) {
         onClick: this.addOne.bind(this)
       }, "+"), _react.default.createElement("button", {
         id: "start",
-        onClick: this.StartTimer.bind(this)
+        onClick: this.StopTimer.bind(this)
       }, this.state.button), _react.default.createElement("button", {
         id: "moins",
         onClick: this.deleteOne.bind(this)
@@ -24732,7 +24743,7 @@ var Footer = function Footer() {
 
 var _default = Footer;
 exports.default = _default;
-},{"react":"node_modules/react/index.js"}],"../../.nvm/versions/node/v11.7.0/lib/node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js"}],"../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
 var bundleURL = null;
 
 function getBundleURLCached() {
@@ -24764,7 +24775,7 @@ function getBaseURL(url) {
 
 exports.getBundleURL = getBundleURLCached;
 exports.getBaseURL = getBaseURL;
-},{}],"../../.nvm/versions/node/v11.7.0/lib/node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
+},{}],"../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
 var bundle = require('./bundle-url');
 
 function updateLink(link) {
@@ -24799,12 +24810,12 @@ function reloadCSS() {
 }
 
 module.exports = reloadCSS;
-},{"./bundle-url":"../../.nvm/versions/node/v11.7.0/lib/node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"src/scss/app.scss":[function(require,module,exports) {
+},{"./bundle-url":"../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"src/scss/app.scss":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../../.nvm/versions/node/v11.7.0/lib/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"src/index.js":[function(require,module,exports) {
+},{"_css_loader":"../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"src/index.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
@@ -24867,7 +24878,7 @@ function (_React$Component) {
 var App = document.getElementById("app");
 
 _reactDom.default.render(_react.default.createElement(Pomodorox, null), App);
-},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","./components/Header":"src/components/Header.js","./components/Timer":"src/components/Timer.js","./components/Footer":"src/components/Footer.js","./scss/app.scss":"src/scss/app.scss"}],"../../.nvm/versions/node/v11.7.0/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","./components/Header":"src/components/Header.js","./components/Timer":"src/components/Timer.js","./components/Footer":"src/components/Footer.js","./scss/app.scss":"src/scss/app.scss"}],"../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -24894,7 +24905,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "35579" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "38551" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
@@ -25036,5 +25047,5 @@ function hmrAccept(bundle, id) {
     return hmrAccept(global.parcelRequire, id);
   });
 }
-},{}]},{},["../../.nvm/versions/node/v11.7.0/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","src/index.js"], null)
+},{}]},{},["../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","src/index.js"], null)
 //# sourceMappingURL=/src.a2b27638.map
