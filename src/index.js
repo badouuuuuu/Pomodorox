@@ -14,8 +14,9 @@ class Pomodorox extends React.Component {
               
             </div>
             <Timer/>
+         
             <Footer/>
-
+    
         </div>
     }
 }
