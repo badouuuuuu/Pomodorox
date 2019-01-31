@@ -167,7 +167,6 @@ class Timer extends Component {
             </div>
            </div>
            <div>
-           <button onClick={this.openModal}>Open Modal</button>
 
         <Modal
           isOpen={this.state.modalIsOpen}

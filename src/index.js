@@ -11,7 +11,7 @@ class Pomodorox extends React.Component {
     render() {
         return <div>
             
-            <Header name="Yomi" />
+            <Header/>
             <div className="container">
               
             </div>
