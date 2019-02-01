@@ -1,18 +1,20 @@
 html {
-  background-color: red;
+  background-image: url("bg3.b3a570da.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
   overflow: hidden; }
 
 body {
   text-align: center; }
   body .navbar {
-    background: #3b6205;
+    background-color: rgba(110, 10, 187, 0.768);
     color: #1b4223;
     -webkit-box-shadow: -4px 11px 23px 0px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: -4px 11px 23px 0px rgba(0, 0, 0, 0.75);
     box-shadow: -4px 11px 23px 0px rgba(0, 0, 0, 0.75); }
   body h1 {
     font-size: 16px;
-    color: white;
+    color: rgba(255, 255, 255, 0.428);
     font-weight: bold; }
 
 .title {
@@ -23,15 +25,14 @@ body {
   -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
   box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
-  color: white;
   margin: 0 auto;
   margin-top: 200px;
   grid-template-columns: 10% 1fr 15%;
   grid-template-rows: 10% 1fr 10%;
   height: 200px;
-  background-color: #3b6205;
+  background-color: rgba(255, 255, 255, 0.517);
   width: 640px;
-  border: 2px solid #b93602;
+  border: 2px solid rgba(255, 255, 255, 0.483);
   border-radius: 10px;
   display: grid; }
 
@@ -41,32 +42,35 @@ body {
   vertical-align: middle;
   font-size: 60px;
   line-height: 200px;
-  color: white; }
+  color: rgba(255, 255, 255, 0.775);
+  font-weight: bold; }
 
 #right-pannel {
-  background-color: #b93602;
+  background-color: rgba(110, 10, 187, 0.578);
   grid-column: 3/4;
   grid-row: 1/4;
   width: auto;
   height: auto;
   border-radius: 10px;
-  padding-top: 40px; }
+  padding-top: 40px;
+  padding-left: 5px;
+  padding-right: 5px; }
 
 #right-pannel button {
-  background-color: rgba(255, 255, 255, 0.415);
+  background-color: rgba(255, 255, 255, 0.374);
   cursor: pointer;
   height: 30px;
   border-radius: 10px;
   width: auto;
   border: none;
   color: white;
-  font-weight: bold;
+  font-weight: bolder;
   width: 100%;
   display: grid;
   margin-bottom: 15px; }
 
 #right-pannel button:hover {
-  background-color: rgba(0, 128, 0, 0.741);
+  background-color: rgba(255, 255, 255, 0.571);
   border-radius: 12px;
   color: white; }
 
@@ -76,13 +80,25 @@ body {
   bottom: 0;
   left: 0;
   padding: 0.1rem;
-  background-color: #b93602;
+  background-color: rgba(110, 10, 187, 0.768);
   -webkit-box-shadow: 2px -13px 23px 0px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 2px -13px 23px 0px rgba(0, 0, 0, 0.75);
   box-shadow: 2px -13px 23px 0px rgba(0, 0, 0, 0.75); }
 
 .footer p {
-  color: white; }
+  font-size: 9px;
+  padding-top: 7px;
+  float: right;
+  padding-right: 20px;
+  color: rgba(255, 255, 255, 0.428); }
+
+.footer i {
+  color: rgba(255, 255, 255, 0.428);
+  margin: 5px; }
+
+.footer i:hover {
+  color: rgba(201, 165, 228, 0.183);
+  margin: 5px; }
 
 .modal-button {
   border: none;

@@ -24500,7 +24500,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var Header = function Header() {
   return _react.default.createElement("header", null, _react.default.createElement("nav", {
-    className: "navbar",
+    className: "navbar is-transparent",
     role: "navigation",
     "aria-label": "main navigation"
   }, _react.default.createElement("div", {
@@ -26617,15 +26617,11 @@ _reactModal.default.setAppElement('#app');
 
 var customStyles = {
   content: {
-    top: '50%',
-    left: '50%',
-    right: 'auto',
-    bottom: 'auto',
-    marginRight: '-50%',
-    transform: 'translate(-50%, -50%)',
-    backgroundColor: 'red',
-    border: '2px solid rgb(59, 98, 5)',
-    width: '640px',
+    margin: '0 auto',
+    marginTop: '10%',
+    backgroundColor: 'rgba(110, 10, 187, 0.768)',
+    border: '2px solid white',
+    width: '540px',
     height: '200px',
     borderRadius: '10px'
   }
@@ -26645,13 +26641,10 @@ function (_Component) {
     _this.state = {
       timerStart: false,
       timerStop: true,
-      hours: 0,
       minutes: 25,
       time: 0,
       secondes: 0,
-      zero_secondes: 0,
-      zero_minutes: 0,
-      button: "START",
+      button: "fas fa-clock",
       disabled: false,
       showModal: true
     };
@@ -26679,11 +26672,8 @@ function (_Component) {
     key: "closeModal",
     value: function closeModal() {
       this.setState({
-        modalIsOpen: false,
-        disabled: false
+        modalIsOpen: false
       });
-      this.state.minutes = 25;
-      this.state.secondes = 0;
     }
   }, {
     key: "StartTimer",
@@ -26696,22 +26686,14 @@ function (_Component) {
       this.closeModal();
 
       if (this.state.timerStop) {
-        this.setState(function (prevState) {
-          return {
-            button: prevState.button = "RESET"
-          };
+        this.setState({
+          button: "fas fa-hourglass-end"
         });
         this.timer = setInterval(function () {
           _this2.setState({
             timerStart: true,
             timerStop: false
           });
-
-          if (_this2.state.secondes <= 10) {
-            _this2.state.zero_secondes = 0;
-          } else {
-            _this2.state.zero_secondes = '';
-          }
 
           if (_this2.state.secondes >= 0 && _this2.state.minutes >= 0) {
             _this2.setState(function (prevState) {
@@ -26730,12 +26712,14 @@ function (_Component) {
             }
           }
 
-          if (_this2.state.secondes <= 0 && _this2.state.minutes <= 0) {
+          if (_this2.state.secondes <= 0 && _this2.state.minutes == 0) {
             _this2.setState({
               timerStart: false,
               timerStop: true,
-              button: "START",
-              disabled: false
+              button: "fas fa-clock",
+              disabled: false,
+              minutes: 25,
+              secondes: 0
             });
 
             clearInterval(_this2.timer);
@@ -26748,19 +26732,19 @@ function (_Component) {
   }, {
     key: "ToggleButton",
     value: function ToggleButton(e) {
-      if (this.state.button == "START") {
+      if (this.state.button == "fas fa-clock") {
         this.StartTimer();
       } else {
         this.setState({
           timerStart: false,
           timerStop: true,
-          button: "START"
+          button: "fas fa-clock"
         });
         clearInterval(this.timer);
         this.setState(function (prevState) {
           return {
             minutes: prevState.minutes = 25,
-            secondes: 0 + "0"
+            secondes: 0
           };
         });
         this.state.disabled = false;
@@ -26816,27 +26800,32 @@ function (_Component) {
       var _this3 = this;
 
       return _react.default.createElement("div", {
-        className: "Timer"
+        className: "Timer",
+        "class": "container is-fullhd"
       }, _react.default.createElement("div", {
         id: "box-pomodo"
       }, _react.default.createElement("p", {
         id: "timer"
-      }, " ", this.state.minutes, " :  ", this.state.zero_secondes, "  ", this.state.secondes, " "), _react.default.createElement("div", {
+      }, "   ", this.state.minutes < 10 ? "0" + this.state.minutes : this.state.minutes, " : ", this.state.secondes < 10 ? "0" + this.state.secondes : this.state.secondes), _react.default.createElement("div", {
         id: "right-pannel"
       }, _react.default.createElement("button", {
         disabled: this.state.disabled,
         id: "plus",
         onClick: this.addOne.bind(this)
-      }, "+"), _react.default.createElement("button", {
+      }, _react.default.createElement("i", {
+        "class": "fas fa-plus"
+      })), _react.default.createElement("button", {
         id: "start",
         onClick: this.ToggleButton.bind(this)
-      }, this.state.button), _react.default.createElement("button", {
+      }, _react.default.createElement("i", {
+        className: this.state.button
+      })), _react.default.createElement("button", {
         disabled: this.state.disabled,
         id: "moins",
         onClick: this.deleteOne.bind(this)
-      }, "-"))), _react.default.createElement("div", null, _react.default.createElement("button", {
-        onClick: this.openModal
-      }, "Open Modal"), _react.default.createElement(_reactModal.default, {
+      }, _react.default.createElement("i", {
+        "class": "fas fa-minus"
+      })))), _react.default.createElement("div", null, _react.default.createElement(_reactModal.default, {
         isOpen: this.state.modalIsOpen,
         onAfterOpen: this.afterOpenModal,
         onRequestClose: this.closeModal,
@@ -26876,21 +26865,22 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var Footer = function Footer() {
   return _react.default.createElement("footer", null, _react.default.createElement("nav", {
     className: "footer"
-  }, _react.default.createElement("div", {
-    className: "navbar-brand"
-  }, _react.default.createElement("a", {
-    className: "navbar-item",
-    href: "/"
-  }, _react.default.createElement("p", null, "by ", _react.default.createElement("a", {
+  }, _react.default.createElement("p", null, "@badouuuuuu "), _react.default.createElement("a", {
     href: "https://github.com/badouuuuuu?tab=repositories"
-  }), "@badouuuuuu")))));
+  }, "  ", _react.default.createElement("i", {
+    "class": "fab fa-github"
+  }), "  "), _react.default.createElement("a", {
+    href: "https://github.com/badouuuuuu?tab=repositories"
+  }, "  ", _react.default.createElement("i", {
+    "class": "fab fa-twitter"
+  }), " ")));
 };
 
 var _default = Footer;
 exports.default = _default;
 },{"react":"node_modules/react/index.js"}],"src/components/ModalShow.js":[function(require,module,exports) {
 
-},{}],"../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+},{}],"node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
 var bundleURL = null;
 
 function getBundleURLCached() {
@@ -26922,7 +26912,7 @@ function getBaseURL(url) {
 
 exports.getBundleURL = getBundleURLCached;
 exports.getBaseURL = getBaseURL;
-},{}],"../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
+},{}],"node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
 var bundle = require('./bundle-url');
 
 function updateLink(link) {
@@ -26957,12 +26947,12 @@ function reloadCSS() {
 }
 
 module.exports = reloadCSS;
-},{"./bundle-url":"../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"src/scss/app.scss":[function(require,module,exports) {
+},{"./bundle-url":"node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"src/scss/app.scss":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"src/index.js":[function(require,module,exports) {
+},{"./../img/bg3.jpg":[["bg3.b3a570da.jpg","src/img/bg3.jpg"],"src/img/bg3.jpg"],"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js"}],"src/index.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
@@ -27013,9 +27003,7 @@ function (_React$Component) {
   _createClass(Pomodorox, [{
     key: "render",
     value: function render() {
-      return _react.default.createElement("div", null, _react.default.createElement(_Header.default, {
-        name: "Yomi"
-      }), _react.default.createElement("div", {
+      return _react.default.createElement("div", null, _react.default.createElement(_Header.default, null), _react.default.createElement("div", {
         className: "container"
       }), _react.default.createElement(_Timer.default, null), _react.default.createElement(_Footer.default, null));
     }
@@ -27027,7 +27015,7 @@ function (_React$Component) {
 var App = document.getElementById("app");
 
 _reactDom.default.render(_react.default.createElement(Pomodorox, null), App);
-},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","./components/Header":"src/components/Header.js","./components/Timer":"src/components/Timer.js","./components/Footer":"src/components/Footer.js","./components/ModalShow":"src/components/ModalShow.js","./scss/app.scss":"src/scss/app.scss"}],"../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","./components/Header":"src/components/Header.js","./components/Timer":"src/components/Timer.js","./components/Footer":"src/components/Footer.js","./components/ModalShow":"src/components/ModalShow.js","./scss/app.scss":"src/scss/app.scss"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -27054,7 +27042,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "39505" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "36745" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
@@ -27196,5 +27184,5 @@ function hmrAccept(bundle, id) {
     return hmrAccept(global.parcelRequire, id);
   });
 }
-},{}]},{},["../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","src/index.js"], null)
+},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","src/index.js"], null)
 //# sourceMappingURL=/src.a2b27638.map

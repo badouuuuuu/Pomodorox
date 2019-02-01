@@ -6,15 +6,12 @@ Modal.setAppElement('#app')
 
 const customStyles = {
   content : {
-    top                   : '50%',
-    left                  : '50%',
-    right                 : 'auto',
-    bottom                : 'auto',
-    marginRight           : '-50%',
-    transform             : 'translate(-50%, -50%)',
-    backgroundColor       : 'red',
-    border                : '2px solid rgb(59, 98, 5)',
-    width                 : '640px',
+
+    margin:                     '0 auto',
+    marginTop             :  '10%',
+    backgroundColor       : 'rgba(110, 10, 187, 0.768)',
+    border                : '2px solid white',
+    width                 : '540px',
     height                : '200px',
     borderRadius          : '10px'
 
@@ -28,13 +25,10 @@ class Timer extends Component {
      this.state = { 
        timerStart: false,
        timerStop: true,
-       hours: 0,
        minutes:25,
        time:0,
        secondes:0,
-       zero_secondes:0,
-       zero_minutes:0,
-       button:"START",
+       button:"fas fa-clock",
        disabled: false,
        showModal: true,
 
@@ -56,10 +50,8 @@ class Timer extends Component {
   }
 
   closeModal() {
-    this.setState({modalIsOpen: false, disabled:false});
-    this.state.minutes = 25;
-    this.state.secondes = 0;    
-   
+    this.setState({modalIsOpen: false});
+
   }
  
 
@@ -68,23 +60,22 @@ class Timer extends Component {
     this.state.disabled = true;
     this.state.minutes = this.state.minutes;
     this.state.secondes = this.state.secondes;
+
     this.closeModal();
 
-     if (this.state.timerStop) {
-       this.setState((prevState) => ({ button: prevState.button = "RESET" }))
+     if (this.state.timerStop) { 
+         this.setState({button: "fas fa-hourglass-end"});
 
         this.timer = setInterval(() => {
   
          this.setState({timerStart: true, timerStop: false});
 
-         if(this.state.secondes <= 10) {
-            this.state.zero_secondes = 0;
-          } else {
-            this.state.zero_secondes = ''
-          }
+
  
  
          if (this.state.secondes >= 0 && this.state.minutes >= 0) {
+          
+
             this.setState((prevState) => ({ secondes: prevState.secondes  - 1 }));
 
             if(this.state.secondes <=0 && this.state.minutes >= 1) {
@@ -92,12 +83,12 @@ class Timer extends Component {
             }
          }
 
-         if (this.state.secondes <= 0 && this.state.minutes <= 0) {
+         if (this.state.secondes <= 0 && this.state.minutes == 0) {
       
-            this.setState({timerStart:false, timerStop:true, button:"START", disabled: false});
+            this.setState({timerStart:false, timerStop:true, button:"fas fa-clock", disabled: false, minutes: 25, secondes: 0});
              clearInterval(this.timer);
              this.openModal()
-           
+
          }
  
        }, 1000)
@@ -107,15 +98,15 @@ class Timer extends Component {
  
  ToggleButton(e) {
 
-  if(this.state.button == "START") {
+  if(this.state.button == "fas fa-clock") {
 
     this.StartTimer();
     
 
   } else {
-    this.setState({timerStart:false, timerStop:true, button:"START"});
+    this.setState({timerStart:false, timerStop:true, button:"fas fa-clock"});
     clearInterval(this.timer);
-    this.setState((prevState) => ({ minutes: prevState.minutes = 25, secondes:0 + "0"}));
+    this.setState((prevState) => ({ minutes: prevState.minutes = 25, secondes:0}));
     this.state.disabled = false;
   }
  
@@ -154,16 +145,19 @@ class Timer extends Component {
  
    render() {
      return (
-       <div className="Timer">
-  
+       <div className="Timer" class="container is-fullhd">
+
            <div id="box-pomodo">
-            <p id="timer"> { this.state.minutes } :  { this.state.zero_secondes }  { this.state.secondes } </p> 
-           
+    
+
+           <p id="timer">   {this.state.minutes < 10 ? "0" + this.state.minutes : this.state.minutes} : {this.state.secondes < 10 ? "0" + this.state.secondes : this.state.secondes}
+      </p> 
+
             <div id="right-pannel">
-               <button disabled={this.state.disabled} id="plus" onClick={ this.addOne.bind(this) } >+</button>
+               <button disabled={this.state.disabled} id="plus" onClick={ this.addOne.bind(this) } ><i class="fas fa-plus"></i></button>
                
-               <button id="start" onClick={ this.ToggleButton.bind(this) } >{ this.state.button }</button>
-               <button disabled={this.state.disabled} id="moins" onClick={ this.deleteOne.bind(this)}>-</button>
+               <button id="start" onClick={ this.ToggleButton.bind(this) } ><i className={this.state.button}></i></button>
+               <button disabled={this.state.disabled} id="moins" onClick={ this.deleteOne.bind(this)}><i class="fas fa-minus"></i></button>
             </div>
            </div>
            <div>

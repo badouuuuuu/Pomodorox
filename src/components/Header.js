@@ -3,7 +3,7 @@ import ParcelLogo from "../img/parcel-logo.png";
 
 const Header = () => (
     <header>
-        <nav className="navbar" role="navigation" aria-label="main navigation">
+        <nav className="navbar is-transparent" role="navigation" aria-label="main navigation">
             <div className="navbar-menu">
                 <a className="navbar-item" href="/">
             
