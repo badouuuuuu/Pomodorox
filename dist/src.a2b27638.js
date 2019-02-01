@@ -26597,6 +26597,8 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -26613,17 +26615,17 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
-_reactModal.default.setAppElement('#app');
+_reactModal.default.setAppElement("#app");
 
 var customStyles = {
   content: {
-    margin: '0 auto',
-    marginTop: '10%',
-    backgroundColor: 'rgba(185, 91, 4, 0)',
-    border: '2px solid white',
-    width: '540px',
-    height: '200px',
-    borderRadius: '10px'
+    margin: "0 auto",
+    marginTop: "10%",
+    backgroundColor: "rgba(185, 91, 4, 0)",
+    border: "2px solid white",
+    width: "540px",
+    height: "200px",
+    borderRadius: "10px"
   }
 };
 
@@ -26665,8 +26667,8 @@ function (_Component) {
     key: "afterOpenModal",
     value: function afterOpenModal() {
       // references are now sync'd and can be accessed.
-      this.subtitle.style.color = '#f00';
-      this.subtitle.style.fontWeight = 'bold';
+      this.subtitle.style.color = "#f00";
+      this.subtitle.style.fontWeight = "bold";
     }
   }, {
     key: "closeModal",
@@ -26799,21 +26801,20 @@ function (_Component) {
     value: function render() {
       var _this3 = this;
 
-      return _react.default.createElement("div", {
-        className: "Timer",
-        "class": "container is-fullhd"
-      }, _react.default.createElement("div", {
+      return _react.default.createElement("div", _defineProperty({
+        className: "Timer"
+      }, "className", "container is-fullhd"), _react.default.createElement("div", {
         id: "box-pomodo"
       }, _react.default.createElement("p", {
         id: "timer"
-      }, "   ", this.state.minutes < 10 ? "0" + this.state.minutes : this.state.minutes, " : ", this.state.secondes < 10 ? "0" + this.state.secondes : this.state.secondes), _react.default.createElement("div", {
+      }, " ", this.state.minutes < 10 ? "0" + this.state.minutes : this.state.minutes, " ", ":", " ", this.state.secondes < 10 ? "0" + this.state.secondes : this.state.secondes), _react.default.createElement("div", {
         id: "right-pannel"
       }, _react.default.createElement("button", {
         disabled: this.state.disabled,
         id: "plus",
         onClick: this.addOne.bind(this)
       }, _react.default.createElement("i", {
-        "class": "fas fa-plus"
+        className: "fas fa-plus"
       })), _react.default.createElement("button", {
         id: "start",
         onClick: this.ToggleButton.bind(this)
@@ -26824,7 +26825,7 @@ function (_Component) {
         id: "moins",
         onClick: this.deleteOne.bind(this)
       }, _react.default.createElement("i", {
-        "class": "fas fa-minus"
+        className: "fas fa-minus"
       })))), _react.default.createElement("div", null, _react.default.createElement(_reactModal.default, {
         isOpen: this.state.modalIsOpen,
         onAfterOpen: this.afterOpenModal,
@@ -26869,12 +26870,12 @@ var Footer = function Footer() {
   }, _react.default.createElement("p", null, "@badouuuuuu "), _react.default.createElement("a", {
     href: "https://github.com/badouuuuuu?tab=repositories",
     target: "_blank"
-  }, "  ", _react.default.createElement("i", {
+  }, " ", _react.default.createElement("i", {
     "class": "fab fa-github"
-  }), "  "), _react.default.createElement("a", {
+  }), " "), _react.default.createElement("a", {
     href: "https://twitter.com/badouuuuuu",
     target: "_blank"
-  }, "  ", _react.default.createElement("i", {
+  }, " ", _react.default.createElement("i", {
     "class": "fab fa-twitter"
   }), " ")));
 };
