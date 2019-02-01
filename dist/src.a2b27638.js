@@ -26952,7 +26952,7 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"./../img/bg3.jpg":[["bg3.b3a570da.jpg","src/img/bg3.jpg"],"src/img/bg3.jpg"],"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js"}],"src/index.js":[function(require,module,exports) {
+},{"./../img/bg.jpg":[["bg.7597a4f5.jpg","src/img/bg.jpg"],"src/img/bg.jpg"],"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js"}],"src/index.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));

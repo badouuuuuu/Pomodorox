@@ -1,5 +1,5 @@
 html {
-  background-image: url("bg3.b3a570da.jpg");
+  background-image: url("bg.7597a4f5.jpg");
   background-size: 100%;
   background-repeat: no-repeat;
   overflow: hidden; }
@@ -7,13 +7,13 @@ html {
 body {
   text-align: center; }
   body .navbar {
-    background-color: rgba(110, 10, 187, 0.768);
+    background-color: rgba(187, 10, 84, 0.632);
     color: #1b4223;
     -webkit-box-shadow: -4px 11px 23px 0px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: -4px 11px 23px 0px rgba(0, 0, 0, 0.75);
     box-shadow: -4px 11px 23px 0px rgba(0, 0, 0, 0.75); }
   body h1 {
-    font-size: 16px;
+    font-size: 20px;
     color: rgba(255, 255, 255, 0.428);
     font-weight: bold; }
 
@@ -26,27 +26,27 @@ body {
   -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
   box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
   margin: 0 auto;
-  margin-top: 200px;
+  margin-top: 270px;
   grid-template-columns: 10% 1fr 15%;
   grid-template-rows: 10% 1fr 10%;
-  height: 200px;
-  background-color: rgba(255, 255, 255, 0.517);
-  width: 640px;
+  height: 180px;
+  background-color: rgba(185, 91, 4, 0);
+  width: 450px;
   border: 2px solid rgba(255, 255, 255, 0.483);
   border-radius: 10px;
   display: grid; }
 
 #timer {
+  text-shadow: 4px 6px 10px #231c0c;
   grid-column: 2/3;
   text-align: center;
-  vertical-align: middle;
-  font-size: 60px;
-  line-height: 200px;
-  color: rgba(255, 255, 255, 0.775);
+  font-size: 48px;
+  line-height: 180px;
+  color: #dda120;
   font-weight: bold; }
 
 #right-pannel {
-  background-color: rgba(110, 10, 187, 0.578);
+  background-color: rgba(221, 161, 32, 0.319);
   grid-column: 3/4;
   grid-row: 1/4;
   width: auto;
@@ -57,22 +57,22 @@ body {
   padding-right: 5px; }
 
 #right-pannel button {
-  background-color: rgba(255, 255, 255, 0.374);
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.258);
   cursor: pointer;
-  height: 30px;
-  border-radius: 10px;
-  width: auto;
+  height: 24px;
+  border-radius: 100px;
   border: none;
-  color: white;
+  color: rgba(207, 7, 91, 0.884);
   font-weight: bolder;
-  width: 100%;
+  margin: 0 auto;
   display: grid;
   margin-bottom: 15px; }
 
 #right-pannel button:hover {
   background-color: rgba(255, 255, 255, 0.571);
   border-radius: 12px;
-  color: white; }
+  color: #bb0a54; }
 
 .footer {
   position: absolute;
@@ -80,7 +80,7 @@ body {
   bottom: 0;
   left: 0;
   padding: 0.1rem;
-  background-color: rgba(110, 10, 187, 0.768);
+  background-color: rgba(187, 10, 84, 0.632);
   -webkit-box-shadow: 2px -13px 23px 0px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 2px -13px 23px 0px rgba(0, 0, 0, 0.75);
   box-shadow: 2px -13px 23px 0px rgba(0, 0, 0, 0.75); }
