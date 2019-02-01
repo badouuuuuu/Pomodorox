@@ -1,19 +1,18 @@
 import React, { Component } from 'react';
 import Modal from 'react-modal';
 
-
 Modal.setAppElement('#app')
 
 const customStyles = {
   content : {
 
-    margin:                     '0 auto',
+    margin                :  '0 auto',
     marginTop             :  '10%',
-    backgroundColor       : 'rgba(110, 10, 187, 0.768)',
+    backgroundColor       : 'rgba(185, 91, 4, 0)',
     border                : '2px solid white',
     width                 : '540px',
     height                : '200px',
-    borderRadius          : '10px'
+    borderRadius          : '10px',
 
   },
 };
@@ -25,7 +24,7 @@ class Timer extends Component {
      this.state = { 
        timerStart: false,
        timerStop: true,
-       minutes:25,
+       minutes:0,
        time:0,
        secondes:0,
        button:"fas fa-clock",
@@ -135,8 +134,8 @@ class Timer extends Component {
 
     this.setState((prevState) => ({ minutes: prevState.minutes - 1 }));
 
-    if (this.state.minutes <= 0) {
-        this.setState((prevState) => ({ minutes: prevState.minutes = 0 }));
+    if (this.state.minutes <= 1) {
+        this.setState((prevState) => ({ minutes: prevState.minutes = 1 }));
      
        }
      
@@ -170,7 +169,7 @@ class Timer extends Component {
           contentLabel="Pomodorox"
         >
 
-          <h2 ref={subtitle => this.subtitle = subtitle}>Time over</h2>
+          <h2 className="modal-info" ref={subtitle => this.subtitle = subtitle}>Finished... What do you want ?</h2>
           <button className="modal-button" onClick={this.closeModal}>Discard</button> 
           <button className="modal-button" onClick={this.ToggleButton.bind(this)}>Restart</button>
    

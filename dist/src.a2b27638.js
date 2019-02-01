@@ -26619,7 +26619,7 @@ var customStyles = {
   content: {
     margin: '0 auto',
     marginTop: '10%',
-    backgroundColor: 'rgba(110, 10, 187, 0.768)',
+    backgroundColor: 'rgba(185, 91, 4, 0)',
     border: '2px solid white',
     width: '540px',
     height: '200px',
@@ -26641,7 +26641,7 @@ function (_Component) {
     _this.state = {
       timerStart: false,
       timerStop: true,
-      minutes: 25,
+      minutes: 0,
       time: 0,
       secondes: 0,
       button: "fas fa-clock",
@@ -26786,10 +26786,10 @@ function (_Component) {
         };
       });
 
-      if (this.state.minutes <= 0) {
+      if (this.state.minutes <= 1) {
         this.setState(function (prevState) {
           return {
-            minutes: prevState.minutes = 0
+            minutes: prevState.minutes = 1
           };
         });
       }
@@ -26832,10 +26832,11 @@ function (_Component) {
         style: customStyles,
         contentLabel: "Pomodorox"
       }, _react.default.createElement("h2", {
+        className: "modal-info",
         ref: function ref(subtitle) {
           return _this3.subtitle = subtitle;
         }
-      }, "Time over"), _react.default.createElement("button", {
+      }, "Finished... What do you want ?"), _react.default.createElement("button", {
         className: "modal-button",
         onClick: this.closeModal
       }, "Discard"), _react.default.createElement("button", {
@@ -26866,11 +26867,13 @@ var Footer = function Footer() {
   return _react.default.createElement("footer", null, _react.default.createElement("nav", {
     className: "footer"
   }, _react.default.createElement("p", null, "@badouuuuuu "), _react.default.createElement("a", {
-    href: "https://github.com/badouuuuuu?tab=repositories"
+    href: "https://github.com/badouuuuuu?tab=repositories",
+    target: "_blank"
   }, "  ", _react.default.createElement("i", {
     "class": "fab fa-github"
   }), "  "), _react.default.createElement("a", {
-    href: "https://github.com/badouuuuuu?tab=repositories"
+    href: "https://twitter.com/badouuuuuu",
+    target: "_blank"
   }, "  ", _react.default.createElement("i", {
     "class": "fab fa-twitter"
   }), " ")));
