@@ -26649,8 +26649,7 @@ var customStyles = {
     backgroundColor: "rgba(185, 91, 4, 0)",
     border: "2px solid white",
     width: "540px",
-    height: "200px",
-    borderRadius: "10px"
+    height: "200px"
   }
 };
 
@@ -26668,7 +26667,7 @@ function (_Component) {
     _this.state = {
       timerStart: false,
       timerStop: true,
-      minutes: 25,
+      minutes: 0,
       time: 0,
       secondes: 0,
       button: "fas fa-clock",
@@ -26709,15 +26708,13 @@ function (_Component) {
     key: "openModal",
     value: function openModal() {
       this.setState({
-        modalIsOpen: true
+        modalIsOpen: true,
+        hidden: ""
       });
     }
   }, {
     key: "afterOpenModal",
-    value: function afterOpenModal() {
-      // references are now sync'd and can be accessed.
-      this.subtitle.style.color = "#f00";
-      this.subtitle.style.fontWeight = "bold";
+    value: function afterOpenModal() {// Not Actually Used -> SCSS
     }
   }, {
     key: "closeModal",
@@ -26880,10 +26877,12 @@ function (_Component) {
       }, _react.default.createElement("i", {
         className: "fas fa-minus"
       })))), _react.default.createElement("div", null, _react.default.createElement(_reactModal.default, {
+        overlayClassName: "Overlay",
+        className: "Modal",
         isOpen: this.state.modalIsOpen,
         onAfterOpen: this.afterOpenModal,
         onRequestClose: this.closeModal,
-        style: customStyles,
+        shouldCloseOnOverlayClick: false,
         contentLabel: "Pomodorox"
       }, _react.default.createElement("h2", {
         className: "modal-info",
@@ -27097,7 +27096,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "39467" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "39411" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

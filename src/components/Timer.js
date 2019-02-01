@@ -13,19 +13,18 @@ const customStyles = {
     border: "2px solid white",
     width: "540px",
     height: "200px",
-    borderRadius: "10px"
+    
   }
 };
 
 class Timer extends Component {
-
 
   constructor(props) {
     super(props);
     this.state = {
       timerStart: false,
       timerStop: true,
-      minutes: 25,
+      minutes: 0,
       time: 0,
       secondes: 0,
       button: "fas fa-clock",
@@ -54,17 +53,17 @@ class Timer extends Component {
   }
 
   openModal() {
-    this.setState({ modalIsOpen: true });
+    this.setState({ modalIsOpen: true, hidden:"" });
   }
 
   afterOpenModal() {
-    // references are now sync'd and can be accessed.
-    this.subtitle.style.color = "#f00";
-    this.subtitle.style.fontWeight = "bold";
+    // Not Actually Used -> SCSS
+
+
   }
 
   closeModal() {
-    this.setState({ modalIsOpen: false });
+    this.setState({ modalIsOpen: false,  });
   }
 
   StartTimer(e) {
@@ -193,10 +192,13 @@ class Timer extends Component {
         </div>
         <div>
           <Modal
+            overlayClassName="Overlay"
+            className="Modal"
             isOpen={this.state.modalIsOpen}
             onAfterOpen={this.afterOpenModal}
             onRequestClose={this.closeModal}
-            style={customStyles}
+            shouldCloseOnOverlayClick={false}
+
             contentLabel="Pomodorox"
           >
             <h2

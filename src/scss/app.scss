@@ -5,11 +5,6 @@ html {
   width: 100%;
   background-repeat: no-repeat;
   overflow: hidden;
-
-
-
-
-
 }
 
 body {
@@ -106,7 +101,7 @@ body {
 }
 
 .fa-hourglass-end {
-  color: rgb(1, 65, 121);
+  color: rgba(35, 1, 121, 0.809);
 
   font-size: 20px;
 }
@@ -164,12 +159,12 @@ body {
 
 .modal-button {
   border: none;
-  background-color: rgba(207, 155, 13, 0.564);
+  background-color: rgba(234, 174, 10, 0.326);
   cursor: pointer;
   overflow: hidden;
-  height: 80px;
+  height: 24px;
   border-radius: 10px;
-  width: 100px;
+  width: 120px;
   border: none;
   color: white;
   font-weight: bold;
@@ -183,4 +178,28 @@ body {
 .modal-button:hover {
 
   background-color: rgba(207, 155, 13, 0.823);
+}
+
+.Overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(149, 0, 62, 0.578);
+}
+
+.Modal {
+  padding-top: 100px;
+  width: 340px;
+  height: 300px;
+  outline: none;
+  border-radius: 50px;
+  margin: 0 auto;
+  position: absolute;
+  top: 200px;
+  left: 200px;
+  right: 200px;
+  bottom: 200px;
+  background-color: rgba(255, 255, 255, 0);
 }
