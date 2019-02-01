@@ -1,8 +1,9 @@
 import React from "react";
-import ParcelLogo from "../img/parcel-logo.png";
+import Logo from './Logo'
 
 const Header = () => (
   <header>
+    
     <nav
       className="navbar is-transparent"
       role="navigation"
@@ -10,7 +11,7 @@ const Header = () => (
     >
       <div className="navbar-menu">
         <a className="navbar-item" href="/">
-          <img src={ParcelLogo} alt="" />
+        <Logo/>
           <h1>Welcome on Pomodorox</h1>
         </a>
       </div>

@@ -5,12 +5,12 @@ const Footer = () => (
     <nav className="footer">
       <p>@badouuuuuu </p>
       <a href="https://github.com/badouuuuuu?tab=repositories" target="_blank">
-        {" "}
-        <i class="fab fa-github" />{" "}
+    
+        <i className="fab fa-github" />
       </a>
       <a href="https://twitter.com/badouuuuuu" target="_blank">
-        {" "}
-        <i class="fab fa-twitter" />{" "}
+       
+        <i className="fab fa-twitter" />
       </a>
     </nav>
   </footer>

@@ -1,7 +1,8 @@
 html {
   background-image: url("bg.7597a4f5.jpg");
   background-color: black;
-  background-size: 100%;
+  background-size: cover;
+  width: 100%;
   background-repeat: no-repeat;
   overflow: hidden; }
 
@@ -14,14 +15,15 @@ body {
     -webkit-box-shadow: -4px 11px 23px 0px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: -4px 11px 23px 0px rgba(0, 0, 0, 0.75);
     box-shadow: -4px 11px 23px 0px rgba(0, 0, 0, 0.75);
-    padding: 1rem; }
+    padding: 0.3rem; }
   body h1 {
-    font-size: 16px;
-    color: rgba(255, 255, 255, 0.428);
-    font-weight: bold; }
+    color: rgba(255, 255, 255, 0.571);
+    font-weight: bold;
+    padding-left: 20px; }
+  body svg:hover {
+    fill: rgba(255, 255, 255, 0.537); }
 
 .title {
-  color: red;
   font-size: 14px; }
 
 #box-pomodo {
@@ -40,7 +42,7 @@ body {
   display: grid; }
 
 #timer {
-  text-shadow: 4px 6px 5px rgba(149, 0, 62, 0.564);
+  text-shadow: 1px 3px 3px rgba(149, 0, 62, 0.564);
   grid-column: 2/3;
   text-align: center;
   font-size: 48px;
@@ -72,11 +74,11 @@ body {
   margin-bottom: 12px; }
 
 .fa-hourglass-end {
-  color: rgba(0, 165, 121, 0.625);
+  color: #014179;
   font-size: 20px; }
 
 #plus:focus, #moins:focus {
-  color: rgba(0, 165, 121, 0.625); }
+  color: rgba(165, 135, 0, 0.625); }
 
 #right-pannel button:hover {
   outline: none;
