@@ -26667,7 +26667,7 @@ function (_Component) {
     _this.state = {
       timerStart: false,
       timerStop: true,
-      minutes: 0,
+      minutes: 25,
       time: 0,
       secondes: 0,
       button: "fas fa-clock",
@@ -27096,7 +27096,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "45783" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "34323" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
