@@ -21,7 +21,7 @@ class Timer extends Component {
     this.state = {
       timerStart: false,
       timerStop: true,
-      minutes: 0,
+      minutes: 25,
       time: 0,
       secondes: 0,
       button: "fas fa-clock",
