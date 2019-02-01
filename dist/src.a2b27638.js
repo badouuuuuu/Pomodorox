@@ -26674,7 +26674,8 @@ function (_Component) {
       button: "fas fa-clock",
       disabled: false,
       showModal: true,
-      hidden: ""
+      hidden: "",
+      Hello: ""
     };
     _this.openModal = _this.openModal.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     _this.afterOpenModal = _this.afterOpenModal.bind(_assertThisInitialized(_assertThisInitialized(_this)));
@@ -26683,6 +26684,28 @@ function (_Component) {
   }
 
   _createClass(Timer, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      setTimeout(function () {
+        return _this2.setState({
+          hello: 'Choose your worktime...'
+        });
+      }, 0);
+    }
+  }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate() {
+      var _this3 = this;
+
+      setTimeout(function () {
+        return _this3.setState({
+          hello: ''
+        });
+      }, 20000);
+    }
+  }, {
     key: "openModal",
     value: function openModal() {
       this.setState({
@@ -26706,7 +26729,7 @@ function (_Component) {
   }, {
     key: "StartTimer",
     value: function StartTimer(e) {
-      var _this2 = this;
+      var _this4 = this;
 
       this.state.disabled = true;
       this.state.hidden = "hidden-button";
@@ -26719,20 +26742,20 @@ function (_Component) {
           button: "fas fa-hourglass-end"
         });
         this.timer = setInterval(function () {
-          _this2.setState({
+          _this4.setState({
             timerStart: true,
             timerStop: false
           });
 
-          if (_this2.state.secondes >= 0 && _this2.state.minutes >= 0) {
-            _this2.setState(function (prevState) {
+          if (_this4.state.secondes >= 0 && _this4.state.minutes >= 0) {
+            _this4.setState(function (prevState) {
               return {
                 secondes: prevState.secondes - 1
               };
             });
 
-            if (_this2.state.secondes <= 0 && _this2.state.minutes >= 1) {
-              _this2.setState(function (prevState) {
+            if (_this4.state.secondes <= 0 && _this4.state.minutes >= 1) {
+              _this4.setState(function (prevState) {
                 return {
                   minutes: prevState.minutes - 1,
                   secondes: 59
@@ -26741,8 +26764,8 @@ function (_Component) {
             }
           }
 
-          if (_this2.state.secondes <= 0 && _this2.state.minutes == 0) {
-            _this2.setState({
+          if (_this4.state.secondes <= 0 && _this4.state.minutes == 0) {
+            _this4.setState({
               timerStart: false,
               timerStop: true,
               button: "fas fa-clock",
@@ -26751,9 +26774,9 @@ function (_Component) {
               secondes: 0
             });
 
-            clearInterval(_this2.timer);
+            clearInterval(_this4.timer);
 
-            _this2.openModal();
+            _this4.openModal();
           }
         }, 1000);
       }
@@ -26827,7 +26850,7 @@ function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this3 = this;
+      var _this5 = this;
 
       return _react.default.createElement("div", _defineProperty({
         className: "Timer"
@@ -26835,7 +26858,7 @@ function (_Component) {
         id: "box-pomodo"
       }, _react.default.createElement("p", {
         id: "timer"
-      }, " ", this.state.minutes < 10 ? "0" + this.state.minutes : this.state.minutes, " ", ":", " ", this.state.secondes < 10 ? "0" + this.state.secondes : this.state.secondes), _react.default.createElement("div", {
+      }, this.state.minutes < 10 ? "0" + this.state.minutes : this.state.minutes, ":", this.state.secondes < 10 ? "0" + this.state.secondes : this.state.secondes), _react.default.createElement("div", {
         id: "right-pannel"
       }, _react.default.createElement("button", {
         className: this.state.hidden,
@@ -26865,7 +26888,7 @@ function (_Component) {
       }, _react.default.createElement("h2", {
         className: "modal-info",
         ref: function ref(subtitle) {
-          return _this3.subtitle = subtitle;
+          return _this5.subtitle = subtitle;
         }
       }, "Finished... What do you want ?"), _react.default.createElement("button", {
         className: "modal-button",
@@ -26873,7 +26896,9 @@ function (_Component) {
       }, "Discard"), _react.default.createElement("button", {
         className: "modal-button",
         onClick: this.ToggleButton.bind(this)
-      }, "Restart"), _react.default.createElement("form", null))));
+      }, "Restart"), _react.default.createElement("form", null))), _react.default.createElement("p", {
+        className: "hello-message"
+      }, this.state.hello));
     }
   }]);
 
@@ -27072,7 +27097,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "33537" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "42563" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

@@ -7,6 +7,7 @@ html {
   overflow: hidden; }
 
 body {
+  font-family: 'Roboto', sans-serif;
   width: 100%;
   text-align: center; }
   body .navbar {
@@ -23,6 +24,12 @@ body {
   body svg:hover {
     fill: rgba(255, 255, 255, 0.537); }
 
+.hello-message {
+  color: rgba(149, 0, 62, 0.564);
+  font-size: 14px;
+  padding-top: 10px;
+  text-shadow: 3px 5px 5px rgba(209, 205, 208, 0.564); }
+
 .title {
   font-size: 14px; }
 
@@ -31,7 +38,7 @@ body {
   -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
   box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
   margin: 0 auto;
-  margin-top: 150px;
+  margin-top: 240px;
   grid-template-columns: 10% 1fr 15%;
   grid-template-rows: 10% 1fr 10%;
   height: 180px;
@@ -61,7 +68,9 @@ body {
   padding-left: 5px;
   padding-right: 5px; }
 
-#start, #moins, #plus {
+#start,
+#moins,
+#plus {
   outline: none;
   background-color: rgba(255, 255, 255, 0.258);
   cursor: pointer;
@@ -77,7 +86,8 @@ body {
   color: #014179;
   font-size: 20px; }
 
-#plus:focus, #moins:focus {
+#plus:focus,
+#moins:focus {
   color: rgba(165, 135, 0, 0.625); }
 
 #right-pannel button:hover {

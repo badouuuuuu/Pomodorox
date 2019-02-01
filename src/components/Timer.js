@@ -3,6 +3,8 @@ import Modal from "react-modal";
 
 Modal.setAppElement("#app");
 
+
+
 const customStyles = {
   content: {
     margin: "0 auto",
@@ -16,6 +18,8 @@ const customStyles = {
 };
 
 class Timer extends Component {
+
+
   constructor(props) {
     super(props);
     this.state = {
@@ -27,11 +31,26 @@ class Timer extends Component {
       button: "fas fa-clock",
       disabled: false,
       showModal: true,
-      hidden:""
+      hidden:"",
+      Hello:"",
     };
     this.openModal = this.openModal.bind(this);
     this.afterOpenModal = this.afterOpenModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
+
+  
+  }
+
+
+  componentDidMount(){
+    setTimeout(() => this.setState({hello:
+      'Choose your worktime...' 
+
+    }), 0);
+  }
+
+  componentDidUpdate(){
+    setTimeout(() => this.setState({hello:''}), 20000);
   }
 
   openModal() {
@@ -138,12 +157,13 @@ class Timer extends Component {
     return (
       <div className="Timer" className="container is-fullhd">
         <div id="box-pomodo">
+    
           <p id="timer">
-            {" "}
+         
             {this.state.minutes < 10
               ? "0" + this.state.minutes
-              : this.state.minutes}{" "}
-            :{" "}
+              : this.state.minutes}
+            :
             {this.state.secondes < 10
               ? "0" + this.state.secondes
               : this.state.secondes}
@@ -198,6 +218,7 @@ class Timer extends Component {
             <form />
           </Modal>
         </div>
+        <p className="hello-message">{this.state.hello}</p>
       </div>
     );
   }

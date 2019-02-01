@@ -6,9 +6,14 @@ html {
   background-repeat: no-repeat;
   overflow: hidden;
 
+
+
+
+
 }
 
 body {
+  font-family: 'Roboto', sans-serif;
   width: 100%;
   text-align: center;
 
@@ -24,26 +29,26 @@ body {
 
 
   h1 {
-
     color: rgba(255, 255, 255, 0.571);
     font-weight: bold;
     padding-left: 20px;
   }
 
-svg:hover {
-
-
-  fill: rgba(255, 255, 255, 0.537);
-
-}
+  svg:hover {
+    fill: rgba(255, 255, 255, 0.537);
+  }
 
 }
 
+.hello-message {
+  color: rgba(149, 0, 62, 0.564);
+  font-size: 14px;
+  padding-top: 10px;
+  text-shadow: 3px 5px 5px rgba(209, 205, 208, 0.564);
+}
 
 .title {
-
   font-size: 14px;
-
 }
 
 #box-pomodo {
@@ -51,7 +56,7 @@ svg:hover {
   -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
   box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
   margin: 0 auto;
-  margin-top: 150px;
+  margin-top: 240px;
   grid-template-columns: 10% 1fr 15%;
   grid-template-rows: 10% 1fr 10%;
   height: 180px;
@@ -85,7 +90,9 @@ svg:hover {
   padding-right: 5px;
 }
 
-#start, #moins, #plus {
+#start,
+#moins,
+#plus {
   outline: none;
   background-color: rgba(255, 255, 255, 0.258);
   cursor: pointer;
@@ -104,7 +111,8 @@ svg:hover {
   font-size: 20px;
 }
 
-#plus:focus, #moins:focus{
+#plus:focus,
+#moins:focus {
   color: rgba(165, 135, 0, 0.625);
 }
 
@@ -150,7 +158,7 @@ svg:hover {
   margin: 5px;
 }
 
-.modal-info{
+.modal-info {
   color: white;
 }
 
@@ -173,6 +181,6 @@ svg:hover {
 }
 
 .modal-button:hover {
-  
+
   background-color: rgba(207, 155, 13, 0.823);
 }
