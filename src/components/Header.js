@@ -10,7 +10,7 @@ const Header = () => (
       aria-label="main navigation"
     >
       <div className="navbar-menu">
-        <a className="navbar-item" href="/">
+        <a className="navbar-item" href="https://badouuuuuu.github.io/Pomodorox/">
         <Logo/>
           <h1>Welcome on Pomodorox</h1>
         </a>
