@@ -26643,12 +26643,13 @@ function (_Component) {
     _this.state = {
       timerStart: false,
       timerStop: true,
-      minutes: 0,
+      minutes: 25,
       time: 0,
       secondes: 0,
       button: "fas fa-clock",
       disabled: false,
-      showModal: true
+      showModal: true,
+      hidden: ""
     };
     _this.openModal = _this.openModal.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     _this.afterOpenModal = _this.afterOpenModal.bind(_assertThisInitialized(_assertThisInitialized(_this)));
@@ -26683,6 +26684,7 @@ function (_Component) {
       var _this2 = this;
 
       this.state.disabled = true;
+      this.state.hidden = "hidden-button";
       this.state.minutes = this.state.minutes;
       this.state.secondes = this.state.secondes;
       this.closeModal();
@@ -26750,6 +26752,7 @@ function (_Component) {
           };
         });
         this.state.disabled = false;
+        this.state.hidden = "";
       }
     }
   }, {
@@ -26810,6 +26813,7 @@ function (_Component) {
       }, " ", this.state.minutes < 10 ? "0" + this.state.minutes : this.state.minutes, " ", ":", " ", this.state.secondes < 10 ? "0" + this.state.secondes : this.state.secondes), _react.default.createElement("div", {
         id: "right-pannel"
       }, _react.default.createElement("button", {
+        className: this.state.hidden,
         disabled: this.state.disabled,
         id: "plus",
         onClick: this.addOne.bind(this)
@@ -26821,6 +26825,7 @@ function (_Component) {
       }, _react.default.createElement("i", {
         className: this.state.button
       })), _react.default.createElement("button", {
+        className: this.state.hidden,
         disabled: this.state.disabled,
         id: "moins",
         onClick: this.deleteOne.bind(this)
@@ -26882,9 +26887,7 @@ var Footer = function Footer() {
 
 var _default = Footer;
 exports.default = _default;
-},{"react":"node_modules/react/index.js"}],"src/components/ModalShow.js":[function(require,module,exports) {
-
-},{}],"node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js"}],"node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
 var bundleURL = null;
 
 function getBundleURLCached() {
@@ -26969,8 +26972,6 @@ var _Timer = _interopRequireDefault(require("./components/Timer"));
 
 var _Footer = _interopRequireDefault(require("./components/Footer"));
 
-var _ModalShow = _interopRequireDefault(require("./components/ModalShow"));
-
 require("./scss/app.scss");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -27019,7 +27020,7 @@ function (_React$Component) {
 var App = document.getElementById("app");
 
 _reactDom.default.render(_react.default.createElement(Pomodorox, null), App);
-},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","./components/Header":"src/components/Header.js","./components/Timer":"src/components/Timer.js","./components/Footer":"src/components/Footer.js","./components/ModalShow":"src/components/ModalShow.js","./scss/app.scss":"src/scss/app.scss"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","./components/Header":"src/components/Header.js","./components/Timer":"src/components/Timer.js","./components/Footer":"src/components/Footer.js","./scss/app.scss":"src/scss/app.scss"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -27046,7 +27047,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "36745" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "36071" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

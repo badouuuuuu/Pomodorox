@@ -10,7 +10,7 @@ body {
   text-align: center;
 
   .navbar {
-    background-color: rgba(187, 10, 84, 0.632);
+    background-color: rgba(165, 0, 69, 0.55);
     color: rgb(27, 66, 35);
     -webkit-box-shadow: -4px 11px 23px 0px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: -4px 11px 23px 0px rgba(0, 0, 0, 0.75);
@@ -22,12 +22,11 @@ body {
     font-size: 20px;
     color: rgba(255, 255, 255, 0.428);
     font-weight: bold;
-
   }
 }
 
 .title {
-  color: white;
+  color: rgb(255, 0, 0);
   font-size: 14px;
 
 }
@@ -75,20 +74,28 @@ body {
   outline: none;
   background-color: rgba(255, 255, 255, 0.258);
   cursor: pointer;
-  height: 24px;
-  border-radius: 100px;
+  height: 30px;
+  border-radius: 50%;
   border: none;
   color: rgba(207, 7, 91, 0.884);
   font-weight: bolder;
+  font-size: 16px;
   margin: 0 auto;
-  display: grid;
   margin-bottom: 15px;
+}
+.fa-hourglass-end {
+  color: rgba(0, 0, 0, 0.517);
 }
 
 #right-pannel button:hover {
+  outline: none;
   background-color: rgba(255, 255, 255, 0.571);
   border-radius: 12px;
   color: rgb(187, 10, 84);
+}
+
+.hidden-button {
+  visibility: hidden;
 }
 
 .footer {
@@ -96,8 +103,8 @@ body {
   right: 0;
   bottom: 0;
   left: 0;
-  padding: 0.1rem;
-  background-color: rgba(187, 10, 84, 0.632);
+  padding: 0.5rem;
+  background-color: rgba(165, 0, 69, 0.55);
   -webkit-box-shadow: 2px -13px 23px 0px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 2px -13px 23px 0px rgba(0, 0, 0, 0.75);
   box-shadow: 2px -13px 23px 0px rgba(0, 0, 0, 0.75);

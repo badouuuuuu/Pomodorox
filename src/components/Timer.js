@@ -26,7 +26,8 @@ class Timer extends Component {
       secondes: 0,
       button: "fas fa-clock",
       disabled: false,
-      showModal: true
+      showModal: true,
+      hidden:""
     };
     this.openModal = this.openModal.bind(this);
     this.afterOpenModal = this.afterOpenModal.bind(this);
@@ -49,6 +50,7 @@ class Timer extends Component {
 
   StartTimer(e) {
     this.state.disabled = true;
+    this.state.hidden = "hidden-button";
     this.state.minutes = this.state.minutes;
     this.state.secondes = this.state.secondes;
 
@@ -102,6 +104,7 @@ class Timer extends Component {
         secondes: 0
       }));
       this.state.disabled = false;
+      this.state.hidden = "";
     }
   }
 
@@ -147,7 +150,8 @@ class Timer extends Component {
           </p>
 
           <div id="right-pannel">
-            <button
+          
+            <button className={this.state.hidden}
               disabled={this.state.disabled}
               id="plus"
               onClick={this.addOne.bind(this)}
@@ -158,7 +162,7 @@ class Timer extends Component {
             <button id="start" onClick={this.ToggleButton.bind(this)}>
               <i className={this.state.button} />
             </button>
-            <button
+            <button className={this.state.hidden}
               disabled={this.state.disabled}
               id="moins"
               onClick={this.deleteOne.bind(this)}
@@ -184,8 +188,8 @@ class Timer extends Component {
             <button className="modal-button" onClick={this.closeModal}>
               Discard
             </button>
-            <button
-              className="modal-button"
+            <button 
+              className="modal-button" 
               onClick={this.ToggleButton.bind(this)}
             >
               Restart
